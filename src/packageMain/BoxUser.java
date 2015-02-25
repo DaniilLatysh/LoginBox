@@ -1,8 +1,17 @@
 package packageMain;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,6 +34,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.ListModel;
 import javax.swing.WindowConstants;
@@ -34,16 +44,18 @@ import javax.swing.event.AncestorListener;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
+import java.awt.Component;
+
 public class BoxUser extends JFrame {
 
+	private static final long serialVersionUID = 8200297926255487874L;
 	private JPanel box;
 	private PicturePanel picturePanel;
-	private JTextPane pane;
-	private JScrollPane southScroll;
 	private JButton save;
 	private DataBase db;
 	public String i = "";
-	
+	private JButton wordButtonBig;
+	//public int word = 11;
 	
 	public BoxUser() {
 		initComponents();
@@ -51,31 +63,40 @@ public class BoxUser extends JFrame {
 
 	private void initComponents() {
 		
+
+		
 		box = new JPanel();
 		setTitle("LoginBox");
 		setSize(500, 300);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		Font font = new Font("font", Font.BOLD, 11);
+		Font font = new Font("font", Font.HANGING_BASELINE, 13);
 		Font font2 = new Font("font2", Font.ITALIC, 15);
-
-		pane = new JTextPane();
-		pane.setEditable(true);
-		pane.setFont(font);
-		pane.setLayout(new BorderLayout());
-		pane.setBounds(120, 10, 360, 200);
 		
-		southScroll = new JScrollPane(pane);
-		southScroll.setPreferredSize(new Dimension(13, 40));
-		southScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		
-		add(pane);
-		pane.add(southScroll, BorderLayout.EAST);
 		
-
+		
+		
+        JTextArea pane = new JTextArea(10, 3);
+        pane.setBackground(new Color(255, 255, 255));
+        pane.setText(i);
+        pane.setCaretPosition(0);
+        pane.setEditable(true);
+ 		pane.setFont(font);
+        final JScrollPane scrollPane = new JScrollPane(pane);
+ 		scrollPane.setPreferredSize(new Dimension(18, 190));
+ 		
+        box.add(scrollPane, BorderLayout.EAST);
+/*  
+        wordButtonBig = new JButton("A");
+        wordButtonBig.setFont(font2);
+        wordButtonBig.setBounds(110, 200, 45, 20);
+        wordButtonBig.setBackground(Color.white);
+        add(wordButtonBig);
+*/
 		save = new JButton("Save");
 		save.setFont(font2);
-		save.setBounds(10, 10, 100, 40);
+		save.setBounds(10, 200, 100, 40);
 		save.setBackground(Color.white);
 		add(save);
 		
@@ -127,7 +148,18 @@ public class BoxUser extends JFrame {
 				}
 			}
 		});
-
+/*
+ *                                                                          Кнопка увеличения размера шрифта. Не работает из-за отсутствия обновления.
+		wordButtonBig.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try{
+					word = word++;
+				}catch(Exception word){
+					JOptionPane.showMessageDialog(null, "Ошибка!");
+				}
+			}
+		});
+*/
 		picturePanel = new PicturePanel();
 		picturePanel.setLayout(new java.awt.BorderLayout());
 		picturePanel

@@ -5,8 +5,8 @@ import java.sql.SQLException;
 public class LBMain {
 
 	public static void main(String[] args) throws SQLException {
-		InputUser IU = new InputUser();
-		//BoxUser BU = new BoxUser();
+		//InputUser IU = new InputUser();
+		BoxUser BU = new BoxUser();
 		DataBase db = new DataBase("jdbc:mysql://localhost/", "", "root", "5813");
 		//db.update("drop database loginbox;");
 		db.update("CREATE DATABASE IF NOT EXISTS loginbox;");

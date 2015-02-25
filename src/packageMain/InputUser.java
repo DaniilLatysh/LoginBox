@@ -41,7 +41,7 @@ public class InputUser extends JFrame {
 		picturePanel2 = new PicturePanel();
 		box = new JPanel();
 		setTitle("LoginBox");
-		setSize(500, 300);
+		setSize(400, 230);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		Font font = new Font("Game", Font.BOLD, 11);
@@ -90,27 +90,27 @@ public class InputUser extends JFrame {
 		menuBar.add(fileMenu);
 
 		JLabel in = new JLabel("Input your Name: ");
-		in.setBounds(100, 40, 160, 20);
+		in.setBounds(60, 20, 160, 20);
 		in.setForeground(Color.white);
 		in.setFont(font2);
 		add(in);
 
 		JTextField log = new JTextField();
-		log.setBounds(100, 65, 280, 20);
+		log.setBounds(60, 45, 280, 20);
 		add(log);
 
 		JLabel ip = new JLabel("Input your pass: ");
-		ip.setBounds(100, 75, 160, 60);
+		ip.setBounds(60, 55, 160, 60);
 		ip.setForeground(Color.white);
 		ip.setFont(font2);
 		add(ip);
 
 		JPasswordField pass = new JPasswordField();
-		pass.setBounds(100, 120, 280, 20);
+		pass.setBounds(60, 100, 280, 20);
 		add(pass);
 
 		JButton ok = new JButton("Ok");
-		ok.setBounds(190, 150, 100, 20);
+		ok.setBounds(155, 130, 100, 20);
 		// reg.setOpaque(false);
 		ok.setBackground(Color.white);
 		add(ok);
