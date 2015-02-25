@@ -67,7 +67,7 @@ public class BoxUser extends JFrame {
 		
 		box = new JPanel();
 		setTitle("LoginBox");
-		setSize(500, 300);
+		setSize(500, 280);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		Font font = new Font("font", Font.HANGING_BASELINE, 13);
